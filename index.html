@@ -52,14 +52,17 @@
             setTimeout(()=>{
                 try {
                 const {basicSetup,EditorView} = CM["codemirror"];
+                    console.log(CM)
+                const {css} = CM["@codemirror/lang-css"];
                 let codem = new EditorView(
                     {
                         doc:"",
-                        extensions:[basicSetup]
+                        parent:document.body,
+                        extensions:[basicSetup,css()]
                     }
                 )
                 } catch(e) { 
-                    alert(e)
+                    console.log(e)
                 }
             },1000)
         },1000)
